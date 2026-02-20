@@ -131,19 +131,19 @@
 @keyframes shadow-drift {
   0% {
     filter: drop-shadow(0 10px 30px rgba(56, 232, 224, 0.6))
-      drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
+      drop-shadow(0 6px 16px rgba(0, 0, 0, 0.3));
   }
   33% {
     filter: drop-shadow(5px 12px 34px rgba(224, 56, 154, 0.6))
-      drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
+      drop-shadow(0 6px 16px rgba(0, 0, 0, 0.3));
   }
   66% {
     filter: drop-shadow(-5px 10px 30px rgba(42, 168, 163, 0.6))
-      drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
+      drop-shadow(0 6px 16px rgba(0, 0, 0, 0.3));
   }
   100% {
     filter: drop-shadow(0 10px 30px rgba(56, 232, 224, 0.6))
-      drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
+      drop-shadow(0 6px 16px rgba(0, 0, 0, 0.3));
   }
 }
 

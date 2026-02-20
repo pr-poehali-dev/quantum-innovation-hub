@@ -70,14 +70,20 @@ const ArcGalleryHero = ({
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
 
       {(logoImage || logoText) && (
-        <div className="relative top-6 left-1/2 -translate-x-1/2 z-20 opacity-0 animate-fade-in flex items-center gap-3" style={{ animationDelay: '200ms', animationFillMode: 'forwards', width: 'fit-content' }}>
+        <div className="relative z-20 flex flex-col items-center pt-8 sm:pt-10 opacity-0 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
           {logoImage && (
-            <img src={logoImage} alt={logoText} className="h-10 sm:h-12 w-auto" draggable={false} />
+            <div className="relative">
+              <div className="absolute inset-0 blur-2xl animate-glow-pulse rounded-full" style={{ background: 'radial-gradient(circle, rgba(56,232,224,0.4) 0%, rgba(224,56,154,0.3) 50%, transparent 70%)', transform: 'scale(1.8)' }} />
+              <img src={logoImage} alt={logoText} className="relative h-16 sm:h-20 w-auto" draggable={false} />
+            </div>
           )}
           {logoText && (
-            <span className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
-              {logoText}
-            </span>
+            <div className="relative mt-3">
+              <div className="absolute inset-0 blur-xl animate-glow-pulse opacity-60" style={{ background: 'radial-gradient(circle, rgba(56,232,224,0.5) 0%, rgba(224,56,154,0.4) 50%, transparent 70%)', transform: 'scale(2) translateY(0)' }} />
+              <span className="relative text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
+                {logoText}
+              </span>
+            </div>
           )}
         </div>
       )}
@@ -140,9 +146,11 @@ const ArcGalleryHero = ({
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white">
             {title}
           </h1>
-          <p className="mt-4 text-lg text-white/70">
-            {subtitle}
-          </p>
+          {subtitle && (
+            <p className="mt-4 text-lg text-white/70">
+              {subtitle}
+            </p>
+          )}
         </div>
       </div>
     </section>

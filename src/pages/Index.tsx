@@ -45,8 +45,7 @@ const Index = () => {
         games={games}
         logoImage="https://cdn.poehali.dev/files/e9995f74-f6e1-48b0-9641-71adf7176bcf.png"
         logoText="Игры в опере"
-        title="Создаю игры, в которые хочется играть"
-        subtitle="Мобильные и компьютерные игры — от идеи до релиза в магазинах приложений"
+        title="Создаём игры, в которые хочется играть"
         startAngle={20}
         endAngle={160}
         radiusLg={480}

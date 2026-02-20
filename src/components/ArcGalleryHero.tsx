@@ -98,13 +98,17 @@ const ArcGalleryHero = ({
             const x = Math.cos(angleRad) * dimensions.radius;
             const y = Math.sin(angleRad) * dimensions.radius;
 
+            const hasLink = game.url && game.url !== '#' && game.url !== '';
+            const Wrapper = hasLink ? 'a' : 'div';
+            const wrapperProps = hasLink
+              ? { href: game.url, target: '_blank' as const, rel: 'noopener noreferrer', title: game.title }
+              : {};
+
             return (
-              <a
+              <Wrapper
                 key={i}
-                href={game.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute opacity-0 animate-fade-in-up group"
+                {...wrapperProps}
+                className={`absolute opacity-0 animate-fade-in-up group ${hasLink ? 'cursor-pointer' : 'cursor-default'}`}
                 style={{
                   width: dimensions.cardSize,
                   height: dimensions.cardSize,
@@ -115,10 +119,9 @@ const ArcGalleryHero = ({
                   animationFillMode: 'forwards',
                   zIndex: count - i,
                 }}
-                title={game.title}
               >
                 <div
-                  className="rounded-[22%] shadow-xl overflow-hidden ring-1 ring-white/20 bg-black/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:ring-white/50 w-full h-full cursor-pointer"
+                  className={`rounded-[22%] shadow-xl overflow-hidden ring-1 ring-white/20 bg-black/30 backdrop-blur-sm transition-all duration-300 w-full h-full ${hasLink ? 'hover:scale-110 hover:shadow-2xl hover:ring-white/50' : ''}`}
                 >
                   {game.icon && (
                     <img
@@ -129,10 +132,12 @@ const ArcGalleryHero = ({
                     />
                   )}
                 </div>
-                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-white/80 font-medium pointer-events-none">
-                  {game.title}
-                </div>
-              </a>
+                {game.title && (
+                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-white/80 font-medium pointer-events-none">
+                    {game.title}
+                  </div>
+                )}
+              </Wrapper>
             );
           })}
         </div>

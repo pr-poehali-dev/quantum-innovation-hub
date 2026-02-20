@@ -11,6 +11,7 @@ type ArcGalleryHeroProps = {
   title?: string;
   subtitle?: string;
   logoText?: string;
+  logoImage?: string;
   startAngle?: number;
   endAngle?: number;
   radiusLg?: number;
@@ -27,6 +28,7 @@ const ArcGalleryHero = ({
   title = '',
   subtitle = '',
   logoText = '',
+  logoImage = '',
   startAngle = -110,
   endAngle = 110,
   radiusLg = 340,
@@ -63,12 +65,20 @@ const ArcGalleryHero = ({
   const step = (endAngle - startAngle) / (count - 1);
 
   return (
-    <section className={`relative overflow-hidden bg-background min-h-screen flex flex-col ${className}`}>
-      {logoText && (
-        <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20 opacity-0 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-          <span className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-            🎮 {logoText}
-          </span>
+    <section className={`relative overflow-hidden min-h-screen flex flex-col ${className}`}>
+      <div className="absolute inset-0 animated-gradient" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
+
+      {(logoImage || logoText) && (
+        <div className="relative top-6 left-1/2 -translate-x-1/2 z-20 opacity-0 animate-fade-in flex items-center gap-3" style={{ animationDelay: '200ms', animationFillMode: 'forwards', width: 'fit-content' }}>
+          {logoImage && (
+            <img src={logoImage} alt={logoText} className="h-10 sm:h-12 w-auto" draggable={false} />
+          )}
+          {logoText && (
+            <span className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+              {logoText}
+            </span>
+          )}
         </div>
       )}
 
@@ -106,7 +116,7 @@ const ArcGalleryHero = ({
                 title={game.title}
               >
                 <div
-                  className="rounded-[22%] shadow-xl overflow-hidden ring-1 ring-border/50 bg-card transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:ring-primary/50 w-full h-full cursor-pointer"
+                  className="rounded-[22%] shadow-xl overflow-hidden ring-1 ring-white/20 bg-black/20 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:ring-white/50 w-full h-full cursor-pointer"
                   style={{ transform: `rotate(${angle / 4}deg)` }}
                 >
                   <img
@@ -116,7 +126,7 @@ const ArcGalleryHero = ({
                     draggable={false}
                   />
                 </div>
-                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-muted-foreground font-medium pointer-events-none">
+                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-white/80 font-medium pointer-events-none">
                   {game.title}
                 </div>
               </a>
@@ -127,10 +137,10 @@ const ArcGalleryHero = ({
 
       <div className="relative z-10 flex-1 flex items-center justify-center px-6 -mt-40 md:-mt-52 lg:-mt-64">
         <div className="text-center max-w-2xl px-6 opacity-0 animate-fade-in" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white">
             {title}
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-white/70">
             {subtitle}
           </p>
         </div>

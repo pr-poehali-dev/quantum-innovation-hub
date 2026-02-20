@@ -127,3 +127,84 @@
     animation: fade-in-up 0.8s ease-out;
   }
 }
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes blob-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30%, -20%) scale(1.1);
+  }
+  50% {
+    transform: translate(-10%, 30%) scale(0.9);
+  }
+  75% {
+    transform: translate(-30%, -10%) scale(1.05);
+  }
+}
+
+@keyframes blob-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-20%, 30%) scale(0.95);
+  }
+  50% {
+    transform: translate(30%, -10%) scale(1.1);
+  }
+  75% {
+    transform: translate(10%, 20%) scale(0.9);
+  }
+}
+
+.animated-gradient {
+  background:
+    radial-gradient(ellipse at 20% 50%, #2ebab5 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, #ba2f79 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, #237374 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 70%, #732249 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 10%, #2ebab5 0%, transparent 40%),
+    radial-gradient(ellipse at 60% 50%, #ba2f79 0%, transparent 40%);
+  background-size: 200% 200%;
+  animation: gradient-shift 12s ease-in-out infinite;
+}
+
+.animated-gradient::before,
+.animated-gradient::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+.animated-gradient::before {
+  background: radial-gradient(circle, #2ebab5 0%, transparent 60%);
+  animation: blob-1 15s ease-in-out infinite;
+}
+
+.animated-gradient::after {
+  background: radial-gradient(circle, #ba2f79 0%, transparent 60%);
+  animation: blob-2 18s ease-in-out infinite;
+}

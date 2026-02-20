@@ -70,14 +70,14 @@ const ArcGalleryHero = ({
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
 
       {(logoImage || logoText) && (
-        <div className="relative z-20 flex flex-col items-center pt-8 sm:pt-10 opacity-0 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
+        <div className="relative z-20 flex flex-col items-center pt-4 sm:pt-5 opacity-0 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
           {logoImage && (
             <div className="relative">
               <img src={logoImage} alt={logoText} className="relative h-16 sm:h-20 w-auto animate-shadow-drift" draggable={false} />
             </div>
           )}
           {logoText && (
-            <span className="relative mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white animate-shadow-drift-text">
+            <span className="relative mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-cyan-100 animate-shadow-drift-text">
               {logoText}
             </span>
           )}
@@ -131,7 +131,7 @@ const ArcGalleryHero = ({
 
       <div className="relative z-10 flex-1 flex items-center justify-center px-6 -mt-40 md:-mt-52 lg:-mt-64">
         <div className="text-center max-w-2xl px-6 opacity-0 animate-fade-in" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white animate-shadow-drift-text">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-rose-100 animate-shadow-drift-text">
             {title}
           </h1>
           {subtitle && (

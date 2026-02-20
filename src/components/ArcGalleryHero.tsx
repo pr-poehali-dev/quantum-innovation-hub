@@ -49,7 +49,7 @@ const ArcGalleryHero = ({
 
   return (
     <section className={`relative overflow-hidden min-h-screen flex flex-col items-center ${className}`}>
-      <div className={`absolute inset-0 ${isMobile ? 'static-gradient-blur' : 'animated-gradient'}`} />
+      <div className={`absolute inset-0 ${isMobile ? 'static-gradient-soft' : 'animated-gradient'}`} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
 
       {(logoImage || logoText) && (

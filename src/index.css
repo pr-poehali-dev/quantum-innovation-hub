@@ -180,12 +180,12 @@
 
 .animated-gradient {
   background:
-    radial-gradient(ellipse at 20% 50%, #2ebab5 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, #ba2f79 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, #237374 0%, transparent 50%),
-    radial-gradient(ellipse at 90% 70%, #732249 0%, transparent 50%),
-    radial-gradient(ellipse at 10% 10%, #2ebab5 0%, transparent 40%),
-    radial-gradient(ellipse at 60% 50%, #ba2f79 0%, transparent 40%);
+    radial-gradient(ellipse at 20% 50%, #38e8e0 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, #e0389a 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, #2aa8a3 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 70%, #a3245e 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 10%, #40f0e8 0%, transparent 45%),
+    radial-gradient(ellipse at 60% 50%, #d63590 0%, transparent 45%);
   background-size: 200% 200%;
   animation: gradient-shift 12s ease-in-out infinite;
 }
@@ -196,15 +196,15 @@
   position: absolute;
   inset: -50%;
   border-radius: 50%;
-  opacity: 0.4;
+  opacity: 0.55;
 }
 
 .animated-gradient::before {
-  background: radial-gradient(circle, #2ebab5 0%, transparent 60%);
+  background: radial-gradient(circle, #38e8e0 0%, transparent 55%);
   animation: blob-1 15s ease-in-out infinite;
 }
 
 .animated-gradient::after {
-  background: radial-gradient(circle, #ba2f79 0%, transparent 60%);
+  background: radial-gradient(circle, #e0389a 0%, transparent 55%);
   animation: blob-2 18s ease-in-out infinite;
 }

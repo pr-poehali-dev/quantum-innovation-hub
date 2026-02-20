@@ -117,7 +117,7 @@ const ArcGalleryHero = ({
               >
                 <div
                   className="rounded-[22%] shadow-xl overflow-hidden ring-1 ring-white/20 bg-black/20 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:ring-white/50 w-full h-full cursor-pointer"
-                  style={{ transform: `rotate(${angle / 4}deg)` }}
+                  style={{ transform: 'rotate(0deg)' }}
                 >
                   <img
                     src={game.icon}

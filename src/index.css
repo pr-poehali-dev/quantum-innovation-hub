@@ -258,3 +258,26 @@
   background: radial-gradient(circle, #e0389a 0%, transparent 55%);
   animation: blob-2 18s ease-in-out infinite;
 }
+
+.static-gradient {
+  background:
+    radial-gradient(ellipse at 30% 20%, #38e8e0 0%, transparent 45%),
+    radial-gradient(ellipse at 75% 60%, #e0389a 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 90%, #2aa8a3 0%, transparent 50%),
+    radial-gradient(ellipse at 15% 70%, #a3245e 0%, transparent 40%),
+    radial-gradient(ellipse at 85% 15%, #40f0e8 0%, transparent 35%), #1a1a2e;
+}
+
+@media (max-width: 639px) {
+  .animate-shadow-drift {
+    animation: none;
+    filter: drop-shadow(0 8px 24px rgba(56, 232, 224, 0.5))
+      drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  }
+  .animate-shadow-drift-text {
+    animation: none;
+    text-shadow:
+      0 4px 20px rgba(56, 232, 224, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.6);
+  }
+}

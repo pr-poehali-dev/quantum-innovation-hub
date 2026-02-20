@@ -43,30 +43,49 @@ const ArcGalleryHero = ({
     radius: radiusLg,
     cardSize: cardSizeLg,
   });
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
+      let desiredRadius: number;
+      let cardSize: number;
+
       if (width < 640) {
-        setDimensions({ radius: radiusSm, cardSize: cardSizeSm });
+        desiredRadius = radiusSm;
+        cardSize = cardSizeSm;
+        setIsMobile(true);
       } else if (width < 1024) {
-        setDimensions({ radius: radiusMd, cardSize: cardSizeMd });
+        desiredRadius = radiusMd;
+        cardSize = cardSizeMd;
+        setIsMobile(false);
       } else {
-        setDimensions({ radius: radiusLg, cardSize: cardSizeLg });
+        desiredRadius = radiusLg;
+        cardSize = cardSizeLg;
+        setIsMobile(false);
       }
+
+      const maxCos = Math.max(
+        Math.abs(Math.cos((startAngle * Math.PI) / 180)),
+        Math.abs(Math.cos((endAngle * Math.PI) / 180))
+      );
+      const maxFit = (width / 2 - cardSize / 2 - 12) / Math.max(maxCos, 0.01);
+      const radius = Math.min(desiredRadius, maxFit);
+
+      setDimensions({ radius, cardSize });
     };
 
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [radiusLg, radiusMd, radiusSm, cardSizeLg, cardSizeMd, cardSizeSm]);
+  }, [radiusLg, radiusMd, radiusSm, cardSizeLg, cardSizeMd, cardSizeSm, startAngle, endAngle]);
 
   const count = Math.max(games.length, 2);
   const step = (endAngle - startAngle) / (count - 1);
 
   return (
     <section className={`relative overflow-hidden min-h-screen flex flex-col ${className}`}>
-      <div className="absolute inset-0 animated-gradient" />
+      <div className={`absolute inset-0 ${isMobile ? 'static-gradient' : 'animated-gradient'}`} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
 
       {(logoImage || logoText) && (

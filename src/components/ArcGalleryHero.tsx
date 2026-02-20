@@ -73,17 +73,13 @@ const ArcGalleryHero = ({
         <div className="relative z-20 flex flex-col items-center pt-8 sm:pt-10 opacity-0 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
           {logoImage && (
             <div className="relative">
-              <div className="absolute inset-0 blur-2xl animate-glow-pulse rounded-full" style={{ background: 'radial-gradient(circle, rgba(56,232,224,0.4) 0%, rgba(224,56,154,0.3) 50%, transparent 70%)', transform: 'scale(1.8)' }} />
-              <img src={logoImage} alt={logoText} className="relative h-16 sm:h-20 w-auto" draggable={false} />
+              <img src={logoImage} alt={logoText} className="relative h-16 sm:h-20 w-auto animate-shadow-drift" draggable={false} />
             </div>
           )}
           {logoText && (
-            <div className="relative mt-3">
-              <div className="absolute inset-0 blur-xl animate-glow-pulse opacity-60" style={{ background: 'radial-gradient(circle, rgba(56,232,224,0.5) 0%, rgba(224,56,154,0.4) 50%, transparent 70%)', transform: 'scale(2) translateY(0)' }} />
-              <span className="relative text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
-                {logoText}
-              </span>
-            </div>
+            <span className="relative mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white animate-shadow-drift-text">
+              {logoText}
+            </span>
           )}
         </div>
       )}
@@ -135,7 +131,7 @@ const ArcGalleryHero = ({
 
       <div className="relative z-10 flex-1 flex items-center justify-center px-6 -mt-40 md:-mt-52 lg:-mt-64">
         <div className="text-center max-w-2xl px-6 opacity-0 animate-fade-in" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white animate-shadow-drift-text">
             {title}
           </h1>
           {subtitle && (

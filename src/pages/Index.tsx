@@ -3,8 +3,8 @@ import ArcGalleryHero from "@/components/ArcGalleryHero";
 const games = [
   {
     icon: "https://cdn.poehali.dev/projects/52a0b466-79d2-4d9c-8c72-58f1d3bf200a/files/2114e26a-ff27-47ec-9f43-beefb8c947b0.jpg",
-    title: "Blade of Legends",
-    url: "#",
+    title: "TotAL RPG",
+    url: "https://www.rustore.ru/catalog/app/com.tzargamestudio.endless",
   },
   {
     icon: "https://cdn.poehali.dev/projects/52a0b466-79d2-4d9c-8c72-58f1d3bf200a/files/6b32b0c0-d844-44cc-8c26-54af29c06c7f.jpg",

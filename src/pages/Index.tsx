@@ -43,7 +43,7 @@ const Index = () => {
     <main className="relative min-h-screen bg-background">
       <ArcGalleryHero
         games={games}
-        logoImage="https://cdn.poehali.dev/files/e9995f74-f6e1-48b0-9641-71adf7176bcf.png"
+        logoImage="https://cdn.poehali.dev/files/657b43cb-7e1f-4667-abf4-d5eafd7a8ab3.png"
         logoText="Игры в опере"
         title="Создаём игры, в которые хочется играть"
         startAngle={20}

@@ -118,8 +118,17 @@ const ArcGalleryHero = ({
                 title={game.title}
               >
                 <div
-                  className="rounded-[22%] shadow-xl overflow-hidden ring-1 ring-white/20 bg-black/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:ring-white/50 hover:bg-black/40 w-full h-full cursor-pointer"
-                />
+                  className="rounded-[22%] shadow-xl overflow-hidden ring-1 ring-white/20 bg-black/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:ring-white/50 w-full h-full cursor-pointer"
+                >
+                  {game.icon && (
+                    <img
+                      src={game.icon}
+                      alt={game.title}
+                      className="block w-full h-full object-cover"
+                      draggable={false}
+                    />
+                  )}
+                </div>
                 <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-white/80 font-medium pointer-events-none">
                   {game.title}
                 </div>

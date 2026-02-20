@@ -2,7 +2,7 @@ import ArcGalleryHero from "@/components/ArcGalleryHero";
 
 const games = [
   {
-    icon: "https://cdn.poehali.dev/projects/52a0b466-79d2-4d9c-8c72-58f1d3bf200a/files/2114e26a-ff27-47ec-9f43-beefb8c947b0.jpg",
+    icon: "https://cdn.poehali.dev/files/ac1a2aac-def7-45af-aee8-7ca9bd6b27e8.png",
     title: "TotAL RPG",
     url: "https://www.rustore.ru/catalog/app/com.tzargamestudio.endless",
   },

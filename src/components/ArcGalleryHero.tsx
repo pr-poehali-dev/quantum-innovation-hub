@@ -85,12 +85,12 @@ const ArcGalleryHero = ({
   const step = (endAngle - startAngle) / (count - 1);
 
   const renderMobile = () => (
-    <section className={`relative overflow-hidden min-h-screen flex flex-col items-center justify-center ${className}`}>
+    <section className={`relative overflow-hidden min-h-screen flex flex-col items-center ${className}`}>
       <div className="absolute inset-0 static-gradient" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
 
       {(logoImage || logoText) && (
-        <div className="relative z-20 flex flex-col items-center opacity-0 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
+        <div className="relative z-20 flex flex-col items-center pt-10 opacity-0 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
           {logoImage && (
             <img src={logoImage} alt={logoText} className="relative h-16 w-auto animate-shadow-drift" draggable={false} />
           )}
@@ -102,7 +102,7 @@ const ArcGalleryHero = ({
         </div>
       )}
 
-      <div className="relative z-20 flex flex-wrap justify-center gap-5 my-8 opacity-0 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
+      <div className="relative z-20 flex-1 flex flex-wrap items-center justify-center gap-5 opacity-0 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
         {filledGames.map((game, i) => {
           const size = Math.round(cardSizeSm * 1.5);
           const hasLink = game.url && game.url !== '#' && game.url !== '';
@@ -161,8 +161,11 @@ const ArcGalleryHero = ({
         style={{ width: '100%', height: dimensions.radius * 1.2 }}
       >
         <div className="absolute left-1/2 bottom-0 -translate-x-1/2">
-          {games.map((game, i) => {
-            const angle = startAngle + step * i;
+          {filledGames.map((game, i) => {
+            const filledCount = Math.max(filledGames.length, 1);
+            const angle = filledCount === 1
+              ? (startAngle + endAngle) / 2
+              : startAngle + ((endAngle - startAngle) / (filledCount - 1)) * i;
             const angleRad = (angle * Math.PI) / 180;
             const x = Math.cos(angleRad) * dimensions.radius;
             const y = Math.sin(angleRad) * dimensions.radius;
@@ -186,15 +189,13 @@ const ArcGalleryHero = ({
                   transform: `translate(-50%, 50%)`,
                   animationDelay: `${i * 100}ms`,
                   animationFillMode: 'forwards',
-                  zIndex: count - i,
+                  zIndex: filledCount - i,
                 }}
               >
                 <div
                   className={`rounded-[22%] shadow-xl overflow-hidden ring-1 ring-white/20 bg-black/30 backdrop-blur-sm transition-all duration-300 w-full h-full ${hasLink ? 'hover:scale-110 hover:shadow-2xl hover:ring-white/50' : ''}`}
                 >
-                  {game.icon && (
-                    <img src={game.icon} alt={game.title} className="block w-full h-full object-cover" draggable={false} />
-                  )}
+                  <img src={game.icon} alt={game.title} className="block w-full h-full object-cover" draggable={false} />
                 </div>
                 {game.title && (
                   <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-white/80 font-medium pointer-events-none">

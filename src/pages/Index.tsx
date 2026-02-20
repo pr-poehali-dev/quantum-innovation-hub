@@ -1,14 +1,14 @@
 import ArcGalleryHero from "@/components/ArcGalleryHero";
 
 const games = [
+  { icon: "", title: "", url: "" },
+  { icon: "", title: "", url: "" },
+  { icon: "", title: "", url: "" },
   {
     icon: "https://cdn.poehali.dev/files/ac1a2aac-def7-45af-aee8-7ca9bd6b27e8.png",
     title: "TotAL RPG",
     url: "https://www.rustore.ru/catalog/app/com.tzargamestudio.endless",
   },
-  { icon: "", title: "", url: "" },
-  { icon: "", title: "", url: "" },
-  { icon: "", title: "", url: "" },
   { icon: "", title: "", url: "" },
   { icon: "", title: "", url: "" },
   { icon: "", title: "", url: "" },

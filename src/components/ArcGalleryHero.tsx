@@ -80,12 +80,65 @@ const ArcGalleryHero = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [radiusLg, radiusMd, radiusSm, cardSizeLg, cardSizeMd, cardSizeSm, startAngle, endAngle]);
 
+  const filledGames = games.filter((g) => g.icon);
   const count = Math.max(games.length, 2);
   const step = (endAngle - startAngle) / (count - 1);
 
-  return (
+  const renderMobile = () => (
+    <section className={`relative overflow-hidden min-h-screen flex flex-col items-center justify-center ${className}`}>
+      <div className="absolute inset-0 static-gradient" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
+
+      {(logoImage || logoText) && (
+        <div className="relative z-20 flex flex-col items-center opacity-0 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
+          {logoImage && (
+            <img src={logoImage} alt={logoText} className="relative h-16 w-auto animate-shadow-drift" draggable={false} />
+          )}
+          {logoText && (
+            <span className="relative mt-3 text-2xl font-bold tracking-tight text-white animate-shadow-drift-text">
+              {logoText}
+            </span>
+          )}
+        </div>
+      )}
+
+      <div className="relative z-20 flex flex-wrap justify-center gap-5 my-8 opacity-0 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
+        {filledGames.map((game, i) => {
+          const size = Math.round(cardSizeSm * 1.5);
+          const hasLink = game.url && game.url !== '#' && game.url !== '';
+          const Wrapper = hasLink ? 'a' : 'div';
+          const wrapperProps = hasLink
+            ? { href: game.url, target: '_blank' as const, rel: 'noopener noreferrer', title: game.title }
+            : {};
+
+          return (
+            <Wrapper key={i} {...wrapperProps} className={`group ${hasLink ? 'cursor-pointer' : ''}`}>
+              <div
+                className={`rounded-[22%] shadow-xl overflow-hidden ring-1 ring-white/20 transition-all duration-300 ${hasLink ? 'active:scale-95' : ''}`}
+                style={{ width: size, height: size }}
+              >
+                <img src={game.icon} alt={game.title} className="block w-full h-full object-cover" draggable={false} />
+              </div>
+              {game.title && (
+                <div className="mt-2 text-center text-xs text-white/70 font-medium">{game.title}</div>
+              )}
+            </Wrapper>
+          );
+        })}
+      </div>
+
+      <div className="relative z-10 text-center max-w-sm px-6 opacity-0 animate-fade-in" style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}>
+        <h1 className="text-3xl font-bold tracking-tight text-white animate-shadow-drift-text">
+          {title}
+        </h1>
+        {subtitle && <p className="mt-4 text-lg text-white/70">{subtitle}</p>}
+      </div>
+    </section>
+  );
+
+  const renderDesktop = () => (
     <section className={`relative overflow-hidden min-h-screen flex flex-col ${className}`}>
-      <div className={`absolute inset-0 ${isMobile ? 'static-gradient' : 'animated-gradient'}`} />
+      <div className="absolute inset-0 animated-gradient" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
 
       {(logoImage || logoText) && (
@@ -105,10 +158,7 @@ const ArcGalleryHero = ({
 
       <div
         className="relative mx-auto"
-        style={{
-          width: '100%',
-          height: dimensions.radius * 1.2,
-        }}
+        style={{ width: '100%', height: dimensions.radius * 1.2 }}
       >
         <div className="absolute left-1/2 bottom-0 -translate-x-1/2">
           {games.map((game, i) => {
@@ -143,12 +193,7 @@ const ArcGalleryHero = ({
                   className={`rounded-[22%] shadow-xl overflow-hidden ring-1 ring-white/20 bg-black/30 backdrop-blur-sm transition-all duration-300 w-full h-full ${hasLink ? 'hover:scale-110 hover:shadow-2xl hover:ring-white/50' : ''}`}
                 >
                   {game.icon && (
-                    <img
-                      src={game.icon}
-                      alt={game.title}
-                      className="block w-full h-full object-cover"
-                      draggable={false}
-                    />
+                    <img src={game.icon} alt={game.title} className="block w-full h-full object-cover" draggable={false} />
                   )}
                 </div>
                 {game.title && (
@@ -167,15 +212,13 @@ const ArcGalleryHero = ({
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white animate-shadow-drift-text">
             {title}
           </h1>
-          {subtitle && (
-            <p className="mt-4 text-lg text-white/70">
-              {subtitle}
-            </p>
-          )}
+          {subtitle && <p className="mt-4 text-lg text-white/70">{subtitle}</p>}
         </div>
       </div>
     </section>
   );
+
+  return isMobile ? renderMobile() : renderDesktop();
 };
 
 export default ArcGalleryHero;

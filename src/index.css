@@ -234,29 +234,32 @@
     radial-gradient(ellipse at 80% 20%, #e0389a 0%, transparent 50%),
     radial-gradient(ellipse at 50% 80%, #2aa8a3 0%, transparent 55%),
     radial-gradient(ellipse at 90% 70%, #a3245e 0%, transparent 50%),
-    radial-gradient(ellipse at 10% 10%, #40f0e8 0%, transparent 45%),
-    radial-gradient(ellipse at 60% 50%, #d63590 0%, transparent 45%);
+    radial-gradient(ellipse at 10% 10%, #40f0e8 0%, transparent 45%);
   background-size: 200% 200%;
-  animation: gradient-shift 12s ease-in-out infinite;
+  animation: gradient-shift 16s ease-in-out infinite;
+  will-change: background-position;
 }
 
-.animated-gradient::before,
+.animated-gradient::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  border-radius: 50%;
+  opacity: 0.5;
+  background: radial-gradient(circle, #38e8e0 0%, transparent 55%);
+  animation: blob-1 20s ease-in-out infinite;
+  will-change: transform;
+}
+
 .animated-gradient::after {
   content: "";
   position: absolute;
   inset: -50%;
   border-radius: 50%;
-  opacity: 0.55;
-}
-
-.animated-gradient::before {
-  background: radial-gradient(circle, #38e8e0 0%, transparent 55%);
-  animation: blob-1 15s ease-in-out infinite;
-}
-
-.animated-gradient::after {
+  opacity: 0.5;
   background: radial-gradient(circle, #e0389a 0%, transparent 55%);
-  animation: blob-2 18s ease-in-out infinite;
+  animation: blob-2 24s ease-in-out infinite;
+  will-change: transform;
 }
 
 .static-gradient {

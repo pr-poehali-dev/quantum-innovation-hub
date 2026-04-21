@@ -55,7 +55,7 @@ const ArcGalleryHero = ({
       {(logoImage || logoText) && (
         <div className="relative z-20 flex flex-col items-center pt-10 sm:pt-12 opacity-0 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
           {logoImage && (
-            <img src={logoImage} alt={logoText} className="relative h-16 sm:h-20 w-auto animate-shadow-drift" draggable={false} />
+            <img src={logoImage} alt={logoText} className="relative h-[4.4rem] sm:h-[5.5rem] w-auto animate-shadow-drift" draggable={false} />
           )}
           {logoText && (
             <span className="relative mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white animate-shadow-drift-text">

@@ -82,7 +82,7 @@ const ArcGalleryHero = ({
                 <img src={game.icon} alt={game.title} className="block w-full h-full object-cover" draggable={false} />
               </div>
               {game.title && (
-                <div className="mt-2 text-center text-sm text-white/70 font-medium sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
+                <div className="mt-3 text-center text-sm text-white/70 font-medium sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
                   {game.title}
                 </div>
               )}

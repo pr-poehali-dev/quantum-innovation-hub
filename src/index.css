@@ -268,6 +268,27 @@
     radial-gradient(ellipse at 85% 15%, #40f0e8 0%, transparent 35%), #1a1a2e;
 }
 
+.animated-gradient-mobile {
+  background:
+    radial-gradient(ellipse at 25% 30%, #38e8e0 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 70%, #e0389a 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 90%, #2aa8a3 0%, transparent 55%), #1a1a2e;
+  background-size: 180% 180%;
+  animation: gradient-shift 20s ease-in-out infinite;
+  will-change: background-position;
+}
+
+.animated-gradient-mobile::after {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #40f0e8 0%, transparent 60%);
+  opacity: 0.4;
+  animation: blob-1 22s ease-in-out infinite;
+  will-change: transform;
+}
+
 .static-gradient-soft {
   background:
     radial-gradient(ellipse at 30% 20%, #38e8e0 0%, transparent 45%),

@@ -65,7 +65,7 @@ const ArcGalleryHero = ({
         </div>
       )}
 
-      <div className="relative z-20 flex-1 flex flex-wrap items-center justify-center gap-6 sm:gap-8 opacity-0 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
+      <div className="relative z-20 flex-1 flex flex-wrap items-center justify-center gap-12 sm:gap-16 opacity-0 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
         {filledGames.map((game, i) => {
           const hasLink = game.url && game.url !== '#' && game.url !== '';
           const Wrapper = hasLink ? 'a' : 'div';

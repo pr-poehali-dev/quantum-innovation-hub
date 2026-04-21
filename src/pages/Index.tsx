@@ -4,14 +4,14 @@ const games = [
   { icon: "", title: "", url: "" },
   { icon: "", title: "", url: "" },
   {
-    icon: "https://cdn.poehali.dev/files/2a555167-b25c-4951-be14-0385f08b8ee9.png",
-    title: "Волны и Порох",
-    url: "https://www.rustore.ru/catalog/app/com.Vopere.BoansandNopox",
-  },
-  {
     icon: "https://cdn.poehali.dev/files/ac1a2aac-def7-45af-aee8-7ca9bd6b27e8.png",
     title: "TotAL RPG",
     url: "https://www.rustore.ru/catalog/app/com.tzargamestudio.endless",
+  },
+  {
+    icon: "https://cdn.poehali.dev/files/2a555167-b25c-4951-be14-0385f08b8ee9.png",
+    title: "Волны и Порох",
+    url: "https://www.rustore.ru/catalog/app/com.Vopere.BoansandNopox",
   },
   { icon: "", title: "", url: "" },
   { icon: "", title: "", url: "" },
